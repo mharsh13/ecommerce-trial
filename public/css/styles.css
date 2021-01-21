@@ -1,0 +1,66 @@
+
+body {
+    font-family: "Montserrat";
+    font-weight: 700;
+  }
+  
+  h1 {
+    font-family: "Montserrat";
+    font-size: 1.5rem;
+    line-height: 1.5;
+    font-weight: 900;
+  }
+  
+  h2 {
+    font-family: "Montserrat";
+    font-size: 1rem;
+    line-height: 1;
+  ;
+  }
+  
+  h3 {
+    font-family: "Montserrat";
+    font-size: 1rem;
+    line-height: 1;
+    
+  }
+  p {
+    font-family: "Montserrat";
+    font-size: 0.8rem;
+    line-height: 1.2;
+    font-weight: 100;
+    color: #8f8f8f;
+  }
+
+
+  .container{
+      margin-top: 3%;
+      margin-bottom: 3%;
+  }
+
+  .form-group{
+      width: 50%;
+      margin: 2% 0%;
+  }
+
+  .productBox{
+      text-align: center;
+  }
+
+  .productImage{
+      width: 300px;
+      height: 300px;
+      object-fit: contain;
+  }
+
+  .buttons{
+      text-align: center;
+  }
+
+  .cartButton{
+      margin: 1%;
+  }
+
+  .checkout{
+    margin: 3% 0%;
+  }

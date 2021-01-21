@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>E-Commerce</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&family=Ubuntu:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat&family=Ubuntu:wght@300&display=swap"
+    rel="stylesheet"
+  />
+  <link
+  rel="stylesheet"
+  href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+  integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp"
+  crossorigin="anonymous"
+/>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <body>
+      <nav class="navbar navbar-light navbar-expand-lg" style="background-color: #e3f2fd;">
+        <div class="container-fluid" id="top">
+          <a class="navbar-brand" href="/">
+          E-Commerce
+          </a>
+          <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+              <!-- 6 -->      
+              <a class="nav-link" href="/"> <button class="nav-item btn
+                <% if(path==="/"){ %>
+                 btn-info
+                <% }else{ %>
+                btn-outline-info
+                btn-sm
+                <%} %> 
+                ">HOME</button></a>
+              <a class="nav-link" href="/products"> <button class="nav-item btn
+                <% if(path==="/products"){ %>
+                    btn-info
+                   <% }else{ %>
+                   btn-outline-info
+                   btn-sm
+                   <%} %> 
+                ">PRODUCTS</button></a>
+              <a class="nav-link" href="/addProducts"><button class="nav-item btn
+                <% if(path==="/addProducts"){ %>
+                    btn-info
+                   <% }else{ %>
+                   btn-outline-info
+                   btn-sm
+                   <%} %> 
+                ">ADD PRODUCTS</button></a>
+              <a class="nav-link" href="/cart"><button class="nav-item btn
+                <% if(path==="/cart"){ %>
+                    btn-info
+                   <% }else{ %>
+                   btn-outline-info
+                   btn-sm
+                   <%} %> 
+                ">CART</button></a>  
+              <a class="nav-link" href="/orders"><button class="nav-item btn
+                <% if(path==="/orders"){ %>
+                    btn-info
+                   <% }else{ %>
+                   btn-outline-info
+                   btn-sm
+                   <%} %> 
+                ">ORDERS</button></a>
+              <a class="nav-link" href="/editProducts"><button class="nav-item btn
+                <% if(path==="/editProducts"){ %>
+                    btn-info
+                   <% }else{ %>
+                   btn-outline-info
+                   btn-sm
+                   <%} %> 
+                ">EDIT PRODUCTS</button></a>          
+            </ul>
+          </div>
+        </div>
+      </nav>
