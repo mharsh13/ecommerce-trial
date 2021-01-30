@@ -1,10 +1,12 @@
-const express = require('express');
+const express = require("express");
 
 const router = express.Router();
-const productData = require('./addProducts');
+const Product = require("../models/products");
 
-router.get('/products', (req, res) => {
-  res.render('products.ejs',{path:"/products",products:productData.products});
+router.get("/products", (req, res) => {
+  Product.find().then((products) => {
+    res.render("products.ejs", { path: "/products", products: products });
+  });
 });
 
 exports.router = router;

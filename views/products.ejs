@@ -2,7 +2,7 @@
 
 <div class="container">
     <div class="row">  
-    <% products.forEach((element) => { %> 
+    <% for(let element of products) { %> 
         <div class="col-lg-4 col-md-6 productBox">
             <img src="<%= element.imageUrl %> " class="img-thumbnail rounded img-fluid productImage">
             <div class="title">
@@ -22,7 +22,7 @@
             </form>  
             </div>
         </div> 
-    <% });  %> 
+    <% }  %> 
     </div>
 
 <%- include('includes/footer.ejs') %>

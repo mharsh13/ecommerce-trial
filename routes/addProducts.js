@@ -1,31 +1,33 @@
 const express = require("express");
 
 const router = express.Router();
-var uniqid = require('uniqid');
+var uniqid = require("uniqid");
+const Product = require("../models/products");
 
-const products = [];
 
 router.get("/addProducts", (req, res) => {
   res.render("addProducts.ejs", { path: "/addProducts" });
 });
 
 router.post("/addProducts", function (req, res) {
-  
-var product = {
-    id: uniqid(),
-    title: req.body.title,
-    price: req.body.price,
-    description: req.body.description,
-    imageUrl: req.body.imageUrl,
-    quantity: 1,
-};
+  const title = req.body.title;
+  const price = req.body.price;
+  const description = req.body.description;
+  const imageUrl = req.body.imageUrl;
 
-products.push(product);
+  const product = new Product({
+    title: title,
+    price: price,
+    description: description,
+    imageUrl: imageUrl,
+    userId:req.user,
+  });
 
-res.redirect("/products");
+  product.save();
+ 
 
-
+  res.redirect("/addProducts");
 });
 
 exports.router = router;
-exports.products = products;
+
