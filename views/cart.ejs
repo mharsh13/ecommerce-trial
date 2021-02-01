@@ -3,38 +3,42 @@
 
 <div class="container">
     <div class="row">  
-    <% cartItems.forEach((element) => { %> 
+    <% cartItems.forEach((element)=>{%> 
         <div class="col-lg-4 col-md-6 productBox">
-            <img src="<%= element.imageUrl %> " class="img-thumbnail rounded img-fluid productImage">
+            <img src="<%= element.productId.imageUrl %> " class="img-thumbnail rounded img-fluid productImage">
             <div class="title">
-            <h1><%= element.title %></h1>
+            <h1><%= element.productId.title %></h1>
             </div>
             <div class="price">
-            <h3><%= "$  " + element.price + " X " + element.quantity + " = " + (element.quantity*element.price) %></h3>
+            <h3><%= "$  " + element.productId.price + " X " + element.quantity +" = " +(element.productId.price*element.quantity)%></h3>
             </div>
             <div class="description">
-            <p><%= element.description.slice(0,100)+"..." %></p>
+            <p><%= element.productId.description%></p>
             </div>
             <div class="buttons">
-            <a href="/products/<%= element.id %> "> <button class="btn btn-sm btn-info cartButton">Details   <i class="fas fa-shopping-bag"></i></button></a>
+            <a href="/products/<%= element.productId._id %> "> <button class="btn btn-sm btn-info cartButton">Details   <i class="fas fa-shopping-bag"></i></button></a>
             <form action="/remove" method="POST">
             <button class="btn btn-sm btn-danger cartButton" type="submit">Remove  <i class="fas fa-trash"></i></button>
-            <input type="hidden" name="productId" value="<%= element.id %>">
+            <input type="hidden" name="productId" value="<%= element.productId._id %>">
             </form>  
             </div>
         </div> 
     <% });  %>
 </div>
-
+<%if(cartItems.length<=0){ %> 
+<h1>Nothing Here</h1>
+<% }else{ %>
 <div class="card checkout">
-    <div class="card-header">
-      Checkout
-    </div> 
-    <div class="card-body">   
-      <h5 class="card-title">Total: <%= totalPrice %>  </h5>
-      <a href="#" class="btn btn-success">Proceed to Payment</a>
-    </div>
-</div>  
+  <div class="card-header">
+    Checkout
+  </div> 
+  <div class="card-body">
+    <form action="/orders" method="POST">
+      <button class="btn btn-success" type="submit">Proceed to Payment</button>
+    </form>
+  </div>
+</div>   
+<%} %> 
 
 
 <%- include('includes/footer.ejs') %>

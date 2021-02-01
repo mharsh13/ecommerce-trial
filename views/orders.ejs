@@ -1,3 +1,28 @@
 <%- include('includes/header.ejs') %>
+<div class="card checkout">
+    <% if (orders.length <= 0) { %>
+        <h1>Nothing there!</h1>
+    <% } else { %>
+       
+            <ul>
+                <% orders.forEach(order => { %>
+                    <div class="card-header">
+                    <li>
+                        <h1>Order - # <%= order._id %></h1>
+                       
+                        </div>
+                        <div class="cart-body">
+                            <ul>
+                                <% order.products.forEach(p => { %>
+                                    <li><%= p.product.title %> (<%= p.quantity + " X " + p.product.price + " = " + p.quantity*p.product.price%>)</li>
+                                <% }); %>
+                            </ul>
+                        </div>               
+                    </li>
+                <% }); %>
+            </ul>
+        
+    <% } %>
+</div>
 
 <%- include('includes/footer.ejs') %>
