@@ -17,12 +17,17 @@ router.post("/orders", (req, res) => {
       const cartItems = user.cart.items.map((i) => {
         return { quantity: i.quantity, product: { ...i.productId._doc } };
       });
+      var totalPrice = 0;
+      user.cart.items.forEach((element) => {
+        totalPrice = totalPrice + element.productId.price * element.quantity;
+      });
       const order = new Order({
         user: {
           name: req.user.name,
           userId: req.user,
         },
         products: cartItems,
+        totalPrice:totalPrice,
       });
       return order.save();
     })

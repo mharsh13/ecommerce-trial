@@ -1,24 +1,26 @@
 <%- include('includes/header.ejs') %>
-<div class="card checkout">
+<div class="card checkout container-fluid">
     <% if (orders.length <= 0) { %>
         <h1>Nothing there!</h1>
     <% } else { %>
        
             <ul>
                 <% orders.forEach(order => { %>
-                    <div class="card-header">
-                    <li>
-                        <h1>Order - # <%= order._id %></h1>
-                       
-                        </div>
-                        <div class="cart-body">
-                            <ul>
-                                <% order.products.forEach(p => { %>
-                                    <li><%= p.product.title %> (<%= p.quantity + " X " + p.product.price + " = " + p.quantity*p.product.price%>)</li>
-                                <% }); %>
-                            </ul>
-                        </div>               
-                    </li>
+                    <div class="orderBlock">
+                        <div class="card-header">
+                            <li>
+                                <h1>Order - # <%= order._id %></h1>
+                               <h2>TotalPrice: <%=order.totalPrice %> </h2>
+                                </div>
+                                <div class="cart-body">
+                                    <ul>
+                                        <% order.products.forEach(p => { %>
+                                            <li><%= p.product.title %> (<%= p.quantity + " X " + p.product.price + " = " + p.quantity*p.product.price%>)</li>
+                                        <% }); %>
+                                    </ul>
+                                </div>               
+                            </li>
+                    </div>       
                 <% }); %>
             </ul>
         

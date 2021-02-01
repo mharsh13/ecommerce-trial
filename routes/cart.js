@@ -9,9 +9,14 @@ router.get("/cart", (req, res) => {
     .execPopulate()
     .then((user) => {
       const cartItems = user.cart.items;
+      var totalPrice = 0;
+      cartItems.forEach((element) => {
+        totalPrice = totalPrice + element.productId.price * element.quantity;
+      });
       res.render("cart.ejs", {
         path: "/cart",
         cartItems: cartItems,
+        totalPrice: totalPrice,
       });
     })
     .catch((err) => {
