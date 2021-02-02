@@ -5,7 +5,10 @@ const Order = require("../models/order");
 
 router.get("/orders", (req, res) => {
   Order.find({ "user.userId": req.user._id }).then((orders) => {
-    res.render("orders.ejs", { path: "/orders", orders: orders});
+    res.render("orders.ejs", {
+      path: "/orders",
+      orders: orders,
+    });
   });
 });
 
@@ -27,7 +30,7 @@ router.post("/orders", (req, res) => {
           userId: req.user,
         },
         products: cartItems,
-        totalPrice:totalPrice,
+        totalPrice: totalPrice,
       });
       return order.save();
     })

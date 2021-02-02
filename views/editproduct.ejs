@@ -20,6 +20,7 @@
             <label >Description</label>
             <textarea class="form-control" rows="5" name="description"><%= product.description %> </textarea>
         </div>
+        <input type="hidden" value="<%= csrfToken %>" name="_csrf">
         <button type="submit" class="btn btn-success" name="button">Save Changes</button>
         <input type="hidden" name="productId" value="<%= product.id %>">
     </form>

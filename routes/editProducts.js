@@ -15,7 +15,10 @@ router.get("/editProducts", (req, res) => {
 router.get("/products/edit/:productId", (req, res) => {
   const prodId = req.params.productId;
   Product.findById(prodId).then((product) => {
-    res.render("editProduct.ejs", { path: "/editProducts", product: product });
+    res.render("editProduct.ejs", {
+      path: "/editProducts",
+      product: product,
+    });
   });
 });
 

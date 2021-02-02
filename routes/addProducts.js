@@ -4,9 +4,10 @@ const router = express.Router();
 var uniqid = require("uniqid");
 const Product = require("../models/products");
 
-
 router.get("/addProducts", (req, res) => {
-  res.render("addProducts.ejs", { path: "/addProducts" });
+  res.render("addProducts.ejs", {
+    path: "/addProducts",
+  });
 });
 
 router.post("/addProducts", function (req, res) {
@@ -20,14 +21,12 @@ router.post("/addProducts", function (req, res) {
     price: price,
     description: description,
     imageUrl: imageUrl,
-    userId:req.user,
+    userId: req.user,
   });
 
   product.save();
- 
 
   res.redirect("/addProducts");
 });
 
 exports.router = router;
-

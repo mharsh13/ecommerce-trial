@@ -1,0 +1,17 @@
+<%- include('includes/header.ejs') %>
+<div class="text-center signUpForm">
+    <form class="form-signin" action="/signup" method="POST">
+        <h1 class="h3 mb-3 font-weight-normal">Create a New Account!</h1>
+        <label for="name" class="sr-only">Name</label>
+        <input type="text" id="name" class="form-control nameForm" placeholder="Name" name="name" required>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" name="email" required>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required>
+        <input type="hidden" value="<%= csrfToken %>" name="_csrf">
+        <button class="btn btn-lg btn-info btn-block" type="submit">Sign Up</button>
+      </form>
+      <p>Already have an account? <a href="/">Log In</a></p>
+</div>
+
+<%- include('includes/footer.ejs') %>

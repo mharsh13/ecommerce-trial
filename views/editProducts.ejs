@@ -18,6 +18,7 @@
             <div class="buttons">
             <a href="/products/edit/<%= element.id %> "> <button class="btn btn-sm btn-info cartButton">Edit   <i class="far fa-edit"></i></button></a>
             <form action="/delete" method="POST">
+            <input type="hidden" value="<%= csrfToken %>" name="_csrf">
             <button class="btn btn-sm btn-danger cartButton" type="submit">Delete  <i class="fas fa-trash"></i></button>
             <input type="hidden" name="productId" value="<%= element.id %>">
             </form>  

@@ -6,7 +6,10 @@ const Product = require("../models/products");
 router.get("/products/:productId", (req, res) => {
   const prodId = req.params.productId;
   Product.findById(prodId).then((product) => {
-    res.render("productDetails.ejs", { path: "/products", product: product });
+    res.render("productDetails.ejs", {
+      path: "/products",
+      product: product,
+    });
   });
 });
 

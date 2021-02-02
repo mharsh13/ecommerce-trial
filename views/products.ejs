@@ -17,6 +17,7 @@
             <div class="buttons">
             <a href="/products/<%= element.id %> "> <button class="btn btn-sm btn-info cartButton">Details   <i class="fas fa-shopping-bag"></i></button></a>
             <form action="/cart" method="POST">
+            <input type="hidden" value="<%= csrfToken %>" name="_csrf">
             <button class="btn btn-sm btn-success cartButton" type="submit">Add to Cart  <i class="fas fa-shopping-cart"></i></button>
             <input type="hidden" name="productId" value="<%= element.id %>">
             </form>  

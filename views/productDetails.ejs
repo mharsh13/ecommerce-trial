@@ -14,6 +14,7 @@
             </div>
             <div class="buttons">
                 <form action="/cart" method="POST">
+                    <input type="hidden" value="<%= csrfToken %>" name="_csrf">
                     <button class="btn btn-sm btn-success cartButton" type="submit">Add to Cart  <i class="fas fa-shopping-cart"></i></button>
                     <input type="hidden" name="productId" value="<%= product.id %>">
                 </form>   
