@@ -134,3 +134,8 @@ body {
   .error-message{
     color: red;
   }
+
+  .resetButton{
+    margin-top: 10%;
+  }
+

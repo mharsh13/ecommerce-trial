@@ -5,7 +5,7 @@ const ejs = require("ejs");
 const session = require("express-session");
 const MongoDBStore = require("connect-mongodb-session")(session);
 const csrf = require("csurf");
-const flash=require("connect-flash");
+const flash = require("connect-flash");
 
 const app = express();
 
@@ -22,6 +22,8 @@ const editProducts = require("./routes/editProducts");
 const orders = require("./routes/orders");
 const cart = require("./routes/cart");
 const productDetails = require("./routes/productDetails");
+const resetPassword = require("./routes/resetPassword");
+const updatePassword = require("./routes/updatePassword");
 const User = require("./models/user");
 const isAuth = require("./middleware/is-auth");
 
@@ -67,6 +69,8 @@ app.use((req, res, next) => {
 
 app.use(login.router);
 app.use(signUp.router);
+app.use(resetPassword.router);
+app.use(updatePassword.router);
 app.use(isAuth, products.router);
 app.use(isAuth, addProducts.router);
 app.use(isAuth, editProducts.router);

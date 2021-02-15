@@ -11,6 +11,7 @@
         <input type="hidden" value="<%= csrfToken %>" name="_csrf">
         <button class="btn btn-lg btn-info btn-block" type="submit">Sign in</button>
       </form>
+      <p> <a href="/reset">Forgot Password?</a></p>
       <p>New user? <a href="/signup">Sign Up</a></p>
       <% if(errorMessage){ %>
         <div class="error-message"><h2><%= errorMessage %> </h2></div>
