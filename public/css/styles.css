@@ -130,3 +130,7 @@ body {
   .authForm{
     margin-top: 12%;
   }
+
+  .error-message{
+    color: red;
+  }

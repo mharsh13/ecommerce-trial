@@ -12,6 +12,9 @@
         <button class="btn btn-lg btn-info btn-block" type="submit">Sign Up</button>
       </form>
       <p>Already have an account? <a href="/">Log In</a></p>
+      <% if(errorMessage){ %>
+        <div class="error-message"><h2><%= errorMessage %> </h2></div>
+        <% } %>  
 </div>
 
 <%- include('includes/footer.ejs') %>

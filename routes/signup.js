@@ -2,10 +2,28 @@ const express = require("express");
 const User = require("../models/user");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
+const nodemailer = require("nodemailer");
+const sendgridTransport = require("nodemailer-sendgrid-transport");
+
+const tranporter = nodemailer.createTransport(
+  sendgridTransport({
+    auth: {
+      api_key:
+        "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",
+    },
+  })
+);
 
 router.get("/signup", (req, res) => {
+  let message = req.flash("error");
+  if (message.length > 0) {
+    message = message[0];
+  } else {
+    message = null;
+  }
   res.render("signup.ejs", {
     path: "/signup",
+    errorMessage: message,
   });
 });
 
@@ -16,7 +34,8 @@ router.post("/signup", (req, res) => {
 
   User.findOne({ email: email }).then((userDoc) => {
     if (userDoc) {
-      return res.redirect("/");
+      req.flash("error", "User already exist.");
+      return res.redirect("/signup");
     }
     return bcrypt
       .hash(password, 12)
@@ -34,6 +53,12 @@ router.post("/signup", (req, res) => {
           req.session.isLoggedIn = true;
           req.session.user = user;
           return req.session.save((err) => {
+            tranporter.sendMail({
+              to: email,
+              from: "mharsh13dec@gmail.com",
+              subject: "SignUp Succeeded",
+              html: "<h1>You successfully signed up!</h1>",
+            });
             res.redirect("/products");
           });
         });
