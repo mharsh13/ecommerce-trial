@@ -26,6 +26,7 @@ const resetPassword = require("./routes/resetPassword");
 const updatePassword = require("./routes/updatePassword");
 const User = require("./models/user");
 const isAuth = require("./middleware/is-auth");
+const { check, body } = require("express-validator");
 
 const MONGODB_URI =
   "mongodb+srv://harsh:drGTuQ2yUEBlM11p@cluster0.rctq1.mongodb.net/shop";
@@ -68,7 +69,27 @@ app.use((req, res, next) => {
 });
 
 app.use(login.router);
-app.use(signUp.router);
+app.use(
+  [
+    check("email")
+      .isEmail()
+      .withMessage("Please Enter a valid email")
+      .custom((value, { req }) => {
+        return User.findOne({ email: value }).then((userDoc) => {
+          if (userDoc) {
+            return Promise.reject("User already exists");
+          }
+        });
+      }),
+    body(
+      "password",
+      "Please enter a password with atleast 6 characters and only text and numbers"
+    )
+      .isLength({ min: 6 })
+      .isAlphanumeric(),
+  ],
+  signUp.router
+);
 app.use(resetPassword.router);
 app.use(updatePassword.router);
 app.use(isAuth, products.router);
