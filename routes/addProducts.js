@@ -14,7 +14,8 @@ router.post("/addProducts", function (req, res) {
   const title = req.body.title;
   const price = req.body.price;
   const description = req.body.description;
-  const imageUrl = req.body.imageUrl;
+  const image = req.file;
+  const imageUrl = image.path;
 
   const product = new Product({
     title: title,

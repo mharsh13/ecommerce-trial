@@ -27,7 +27,9 @@ router.post("/editProduct", function (req, res) {
   const updatedTitle = req.body.title;
   const updatedPrice = req.body.price;
   const updatedDescription = req.body.description;
-  const updatedimageUrl = req.body.imageUrl;
+  const updatedImage=req.file;
+  const updatedimageUrl = updatedImage.path;
+  
   Product.findById(prodId)
     .then((product) => {
       product.title = updatedTitle;
