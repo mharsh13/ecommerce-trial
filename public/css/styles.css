@@ -139,3 +139,7 @@ body {
     margin-top: 10%;
   }
 
+  .downloadInvoice{
+    text-align: right;
+    padding-right: 2%;
+  }

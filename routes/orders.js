@@ -1,4 +1,7 @@
 const express = require("express");
+const path = require("path");
+const PDFDocument = require("pdfkit");
+const fs = require("fs");
 
 const router = express.Router();
 const Order = require("../models/order");
@@ -40,6 +43,39 @@ router.post("/orders", (req, res) => {
     .then((result) => {
       res.redirect("/orders");
     });
+});
+
+router.get("/orders/:orderId", (req, res) => {
+  const orderId = req.params.orderId;
+  Order.findById(orderId).then((order) => {
+    const invoiceName = "invoice-" + orderId + ".pdf";
+    const invoicePath = path.join("data", "invoice", invoiceName);
+    const pdfDoc = new PDFDocument();
+    pdfDoc.pipe(fs.createWriteStream(invoicePath));
+    pdfDoc.pipe(res);
+    pdfDoc.fontSize(26).text("Invoice", {
+      underline: true,
+    });
+    pdfDoc.text("-----------------------------------");
+    var totalPrice = 0;
+    order.products.forEach((prod) => {
+      totalPrice = totalPrice + prod.quantity * prod.product.price;
+      pdfDoc.fontSize(14).text(
+        prod.product.title +
+          " - " +
+          prod.quantity +
+          " x " +
+          " $ " +
+          prod.product.price
+      );
+    });
+
+    pdfDoc.text("-----------------------------------");
+    pdfDoc.fontSize(22).text("Total Price:  " + totalPrice,{
+      
+    });
+    pdfDoc.end();
+  });
 });
 
 exports.router = router;
