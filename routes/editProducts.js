@@ -28,6 +28,7 @@ router.post("/editProduct", function (req, res) {
   const updatedPrice = req.body.price;
   const updatedDescription = req.body.description;
   const updatedImage=req.file;
+ 
   const updatedimageUrl = updatedImage.path;
   
   Product.findById(prodId)
@@ -35,7 +36,9 @@ router.post("/editProduct", function (req, res) {
       product.title = updatedTitle;
       product.price = updatedPrice;
       product.description = updatedDescription;
-      product.imageUrl = updatedimageUrl;
+      if(updatedImage){
+        product.imageUrl = updatedimageUrl;
+      }
       return product.save();
     })
     .then((result) => {

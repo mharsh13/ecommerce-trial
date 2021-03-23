@@ -1,6 +1,6 @@
 <%- include('includes/header.ejs') %>
 <div class="container">
-    <form action="/editProduct" method="POST">
+    <form action="/editProduct" method="POST" enctype="multipart/form-data">
         <div class="form-group">
             <label >Title</label>
             <input type="text" class="form-control"  name="title" value="<%= product.title %>"/>
@@ -9,10 +9,7 @@
             <label >Price</label>
             <input type="number" class="form-control"  name="price" value="<%= product.price %>"/>
         </div>
-        <!-- <div class="form-group">
-            <label >Image URL</label>
-            <input type="text" class="form-control"  name="imageUrl" value="<%= product.imageUrl %>"/>
-        </div> -->
+        
         <div class="form-group">
             <label for="image">Image</label>
             <input type="file" class="form-control"  name="image"/>
