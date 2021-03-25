@@ -1,8 +1,7 @@
-
 body {
-    font-family: "Montserrat";
-    font-weight: 700;
-  }
+  font-family: "Montserrat";
+  font-weight: 700;
+}
 
 /* body {
   height: 100%;
@@ -43,11 +42,11 @@ body {
   z-index: 2;
 }
 
-.nameForm{
+.nameForm {
   margin-bottom: 4%;
 }
 
-.signUpForm{
+.signUpForm {
   margin-top: 4%;
 }
 
@@ -61,85 +60,107 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
-  
-  h1 {
-    font-family: "Montserrat";
-    font-size: 1.5rem;
-    line-height: 1.5;
-    font-weight: 900;
-  }
-  
-  h2 {
-    font-family: "Montserrat";
-    font-size: 1rem;
-    line-height: 1;
-  ;
-  }
-  
-  h3 {
-    font-family: "Montserrat";
-    font-size: 1rem;
-    line-height: 1;
-    
-  }
-  p {
-    font-family: "Montserrat";
-    font-size: 0.8rem;
-    line-height: 1.2;
-    font-weight: 100;
-    color: #8f8f8f;
-  }
 
+h1 {
+  font-family: "Montserrat";
+  font-size: 1.5rem;
+  line-height: 1.5;
+  font-weight: 900;
+}
 
-  .container{
-      margin-top: 3%;
-      margin-bottom: 3%;
-  }
+h2 {
+  font-family: "Montserrat";
+  font-size: 1rem;
+  line-height: 1;
+}
 
-  .form-group{
-      width: 50%;
-      margin: 2% 0%;
-  }
+h3 {
+  font-family: "Montserrat";
+  font-size: 1rem;
+  line-height: 1;
+}
+p {
+  font-family: "Montserrat";
+  font-size: 0.8rem;
+  line-height: 1.2;
+  font-weight: 100;
+  color: #8f8f8f;
+}
 
-  .productBox{
-      text-align: center;
-  }
+.container {
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
 
-  .productImage{
-      width: 300px;
-      height: 300px;
-      object-fit: contain;
-  }
+.form-group {
+  width: 50%;
+  margin: 2% 0%;
+}
 
-  .buttons{
-      text-align: center;
-  }
+.productBox {
+  text-align: center;
+  margin-bottom: 3%;
+}
 
-  .cartButton{
-      margin: 1%;
-  }
+.productImage {
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
+}
 
-  .checkout{
-    margin: 3% 0%;
-  }
+.buttons {
+  text-align: center;
+}
 
-  .orderBlock{
-    margin: 3% 2%;
-  }
+.cartButton {
+  margin: 1%;
+}
 
-  .authForm{
-    margin-top: 12%;
-  }
+.checkout {
+  margin: 3% 0%;
+}
 
-  .error-message{
-    color: red;
-  }
+.orderBlock {
+  margin: 3% 2%;
+}
 
-  .resetButton{
-    margin-top: 10%;
-  }
+.authForm {
+  margin-top: 12%;
+}
 
-  .downloadInvoice{
-    text-align: right;
-    padding-right: 2%;
-  }
+.error-message {
+  color: red;
+}
+
+.resetButton {
+  margin-top: 10%;
+}
+
+.downloadInvoice {
+  text-align: right;
+  padding-right: 2%;
+}
+
+.pagination {
+  width: 100%;
+  text-align: center;
+  display: inline-block;
+  margin-bottom: 3%;
+}
+
+.pagination a {
+  text-decoration: none;
+  color: #17a2b8;
+  padding: 0 0.5rem;
+  border: 1px solid #17a2b8;
+  margin: 0 0.5rem;
+  display: inline-block;
+  text-align: center;
+}
+
+.pagination a:hover,
+.pagination a:active,
+.pagination a.active {
+  background-color: #17a2b8;
+  color: white;
+}
